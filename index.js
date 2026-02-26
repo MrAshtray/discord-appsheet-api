@@ -11,7 +11,9 @@ const TOKEN = process.env.DISCORD_TOKEN;
 client.once('ready', () => {
     console.log(`Bot đã sẵn sàng: ${client.user.tag}`);
 });
-
+app.get('/', (req, res) => {
+    res.send('Bot is running 24/7!');
+});
 app.post('/send-dm', async (req, res) => {
     const { userId, message } = req.body;
 
