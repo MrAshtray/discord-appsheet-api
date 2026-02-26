@@ -6,7 +6,7 @@ const app = express();
 app.use(bodyParser.json());
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
-const TOKEN = 'TOKEN_BOT_CUA_BAN';
+const TOKEN = process.env.DISCORD_TOKEN;
 
 client.once('ready', () => {
     console.log(`Bot đã sẵn sàng: ${client.user.tag}`);
@@ -33,4 +33,4 @@ app.listen(3000, () => {
     console.log('API đang chạy tại port 3000');
 });
 
-client.login(TOKEN);
+client.login(process.env.DISCORD_TOKEN);
